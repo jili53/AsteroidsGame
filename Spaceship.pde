@@ -4,6 +4,16 @@ class Spaceship extends Floater
   public Spaceship()
   {
     corners = 4;
+    int[] xS = {10, -4, 0, -4};
+    int[] yS = {0, 5, 0, -5};
+    xCorners = xS;
+    yCorners = yS;
+    myColor = 222;
+    myCenterX = 250;
+    myCenterY = 250;
+    myDirectionX = 0;
+    myDirectionY = 0;
+    myPointDirection = 0 ;
   }
     
   public void setX(int x) { myCenterX = x;}
