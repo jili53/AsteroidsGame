@@ -1,25 +1,28 @@
 //your variable declarations here
+Stars[] aLot;
 Spaceship bob = new Spaceship();
 public void setup() 
 {
   //your code here
   size(500,500);
+  aLot = new Stars[300];
+  for(int i=0; i< aLot.length; i++) {aLot[i] = new Stars();}
 }
 public void draw() 
 {
   //your code here
   background(0);
+  for(int i=0; i< aLot.length; i++) {aLot[i].show();}
   bob.show();
-  if(key == 'w')
-  {
-  bob.setDirectionX(Math.cos(bob.getPointDirection()));
-  bob.setDirectionY(-Math.sin(bob.getPointDirection()));
-  System.out.println(bob.myDirectionX);
   bob.move();
   }
-  }
-public void keyPressed()
+ 
+public void keyTyped()
 {
+  if(key == 'w')
+  {
+    bob.accelerate(0.3);
+  }
   if(key == 'd')
     {
     bob.turn(10);
@@ -27,8 +30,6 @@ public void keyPressed()
   if(key == 'a')
   {
     bob.turn(-10);
-    System.out.println(bob.myPointDirection);
-    
     
   }
   if(key == 'h')
@@ -37,6 +38,6 @@ public void keyPressed()
     bob.setX((int)(Math.random()*500));
     bob.setY((int)(Math.random()*500));
     bob.setDirectionX(0);
-    bob.setDirectionX(0);
+    bob.setDirectionY(0);
   }
 }
