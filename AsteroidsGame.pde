@@ -5,7 +5,7 @@ public void setup()
 {
   //your code here
   size(500,500);
-  aLot = new Stars[300];
+  aLot = new Stars[400];
   for(int i=0; i< aLot.length; i++) {aLot[i] = new Stars();}
 }
 public void draw() 

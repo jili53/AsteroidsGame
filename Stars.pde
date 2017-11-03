@@ -12,7 +12,7 @@ class Stars //note that this class does NOT extend Floater
   {
     rgb = (int)(Math.random()*256);
     noStroke();
-    fill(rgb,40,rgb);
-    ellipse(myX,myY, 2, 2);
+    fill(150,100,rgb);
+    ellipse(myX,myY, 3, 3);
   }
 }
