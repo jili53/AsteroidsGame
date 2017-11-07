@@ -1,6 +1,7 @@
 //your variable declarations here
 Stars[] aLot;
 Spaceship bob = new Spaceship();
+Asteroid sue = new Asteroid();
 public void setup() 
 {
   //your code here
@@ -15,6 +16,7 @@ public void draw()
   for(int i=0; i< aLot.length; i++) {aLot[i].show();}
   bob.show();
   bob.move();
+  sue.show();
   }
  
 public void keyTyped()
