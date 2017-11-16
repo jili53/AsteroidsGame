@@ -1,34 +1,32 @@
 //your variable declarations here
 Stars[] aLot;
 Spaceship bob = new Spaceship();
-Asteroid sue = new Asteroid();
-Asteroid[] aBunch;
+ArrayList<Asteroid> asteroid = new ArrayList<Asteroid>();
 
 public void setup() 
 {
   //your code here
   size(500,500);
   aLot = new Stars[400];
-  aBunch = new Asteroid[25];
   for(int i=0; i< aLot.length; i++) {aLot[i] = new Stars();}
-  for(int i=0; i< aBunch.length; i++) {aBunch[i] = new Asteroid();}
+  for(int i=0; i<25; i++) {asteroid.add(new Asteroid());}
 }
 public void draw() 
 {
   //your code here
   background(0);
   for(int i=0; i< aLot.length; i++) {aLot[i].show();}
-  for(int i=0; i< aBunch.length; i=i+2)
+  for(int i=0; i< asteroid.size(); i=i+2)
   {
-    aBunch[i].show();
-    aBunch[i].move();
+    asteroid.get(i).show();
+    asteroid.get(i).move();
   }
-  for(int i=1; i< aBunch.length; i=i+2)
+  for(int i=1; i< asteroid.size(); i=i+2)
   {
-    aBunch[i].setDirectionX((int)(Math.random())-2);
-    aBunch[i].setDirectionY((int)(Math.random())-2);
-    aBunch[i].show();
-    aBunch[i].move();
+    asteroid.get(i).setDirectionX((int)(Math.random())-2);
+    asteroid.get(i).setDirectionY((int)(Math.random())-2);
+    asteroid.get(i).show();
+    asteroid.get(i).move();
   }
   bob.show();
   bob.move();
