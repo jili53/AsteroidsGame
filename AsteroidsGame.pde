@@ -23,13 +23,19 @@ public void draw()
   }
   for(int i=1; i< asteroid.size(); i=i+2)
   {
-    asteroid.get(i).setDirectionX((int)(Math.random())-2);
-    asteroid.get(i).setDirectionY((int)(Math.random())-2);
     asteroid.get(i).show();
     asteroid.get(i).move();
   }
   bob.show();
   bob.move();
+  for(int i = 0; i< asteroid.size(); i=i+1)
+  {
+    if(dist(asteroid.get(i).getX(), asteroid.get(i).getY(), bob.getX(), bob.getY()) <16)
+    {
+      asteroid.remove(i);
+      i--;
+    }
+  }
   }
  
 public void keyTyped()
