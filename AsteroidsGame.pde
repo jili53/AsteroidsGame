@@ -2,14 +2,14 @@
 Stars[] aLot;
 Spaceship bob = new Spaceship();
 ArrayList<Asteroid> asteroid = new ArrayList<Asteroid>();
-
+ArrayList<Bullet> shoot = new ArrayList<Bullet>();
 public void setup() 
 {
   //your code here
-  size(500,500);
-  aLot = new Stars[400];
+  size(700,700);
+  aLot = new Stars[500];
   for(int i=0; i< aLot.length; i++) {aLot[i] = new Stars();}
-  for(int i=0; i<25; i++) {asteroid.add(new Asteroid());}
+  for(int i=0; i<40; i++) {asteroid.add(new Asteroid());}
 }
 public void draw() 
 {
@@ -25,6 +25,11 @@ public void draw()
   {
     asteroid.get(i).show();
     asteroid.get(i).move();
+  }
+  for(int i=0; i< shoot.size();i++)
+  {
+    shoot.get(i).show();
+    shoot.get(i).move();
   }
   bob.show();
   bob.move();
