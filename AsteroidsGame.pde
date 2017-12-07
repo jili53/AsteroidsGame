@@ -30,14 +30,24 @@ public void draw()
   {
     shoot.get(i).show();
     shoot.get(i).move();
+    for(int j=0; j<asteroid.size(); j++)
+    {
+      if(dist(asteroid.get(j).getX(), asteroid.get(j).getY(), shoot.get(i).getX(), shoot.get(i).getY()) < 15)
+      {
+        asteroid.remove(j);
+        shoot.remove(i);
+        break;
+      }
+    }
   }
   bob.show();
   bob.move();
-  for(int i = 0; i< asteroid.size(); i=i+1)
+  for(int i = 0; i< asteroid.size(); i++)
   {
     if(dist(asteroid.get(i).getX(), asteroid.get(i).getY(), bob.getX(), bob.getY()) <16)
     {
       asteroid.remove(i);
+      asteroid.add(new Asteroid());
       i--;
     }
   }
@@ -66,4 +76,5 @@ public void keyTyped()
     bob.setDirectionX(0);
     bob.setDirectionY(0);
   }
+  if(key == ' ') {shoot.add(new Bullet(bob));}
 }
