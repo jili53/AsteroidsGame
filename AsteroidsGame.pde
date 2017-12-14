@@ -3,18 +3,22 @@ Stars[] aLot;
 Spaceship bob = new Spaceship();
 ArrayList<Asteroid> asteroid = new ArrayList<Asteroid>();
 ArrayList<Bullet> shoot = new ArrayList<Bullet>();
+int points = 0;
+int lives = 10;
+boolean alive = true;
 public void setup() 
 {
   //your code here
   size(700,700);
   aLot = new Stars[500];
   for(int i=0; i< aLot.length; i++) {aLot[i] = new Stars();}
-  for(int i=0; i<40; i++) {asteroid.add(new Asteroid());}
+  for(int i=0; i<35; i++) {asteroid.add(new Asteroid());}
 }
 public void draw() 
 {
   //your code here
   background(0);
+  if(alive == true) {
   for(int i=0; i< aLot.length; i++) {aLot[i].show();}
   for(int i=0; i< asteroid.size(); i=i+2)
   {
@@ -34,12 +38,15 @@ public void draw()
     {
       if(dist(asteroid.get(j).getX(), asteroid.get(j).getY(), shoot.get(i).getX(), shoot.get(i).getY()) < 15)
       {
+        points++;
         asteroid.remove(j);
+        asteroid.add(new Asteroid());
         shoot.remove(i);
         break;
-      }
+      }                            
     }
   }
+
   bob.show();
   bob.move();
   for(int i = 0; i< asteroid.size(); i++)
@@ -48,24 +55,35 @@ public void draw()
     {
       asteroid.remove(i);
       asteroid.add(new Asteroid());
+      lives--;
       i--;
     }
   }
+  textSize(15);
+  text("Points:" +(int)points,600,50);
+  text("Lives:" +(int)lives,600,70);
   }
- 
+  if(lives ==0) {alive = false;}
+  if(alive == false)
+  {
+    textSize(50);
+    text("Game over!", 220,350);
+  }
+}
+
 public void keyTyped()
 {
   if(key == 'w')
   {
-    bob.accelerate(0.3);
+    bob.accelerate(0.2);
   }
   if(key == 'd')
     {
-    bob.turn(10);
+    bob.turn(20);
     }
   if(key == 'a')
   {
-    bob.turn(-10);
+    bob.turn(-20);
     
   }
   if(key == 'h')

@@ -3,7 +3,7 @@ class Asteroid extends Floater
   protected int rotSpeed;
   public Asteroid()
   {
-    myColor= 100;
+    myColor= 70;
     corners=6;
     int[] xS = {0, 7, 7, 0, -7, -7,};
     int[] yS= {10, 7, -7, -11, -7, 7,};

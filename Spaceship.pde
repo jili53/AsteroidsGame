@@ -4,8 +4,8 @@ class Spaceship extends Floater
   public Spaceship()
   {
     corners = 4;
-    int[] xS = {10, -4, 0, -4};
-    int[] yS = {0, 5, 0, -5};
+    int[] xS = {10, -6, -3, -6};
+    int[] yS = {0, 7, 0, -7};
     xCorners = xS;
     yCorners = yS;
     myColor = 222;
